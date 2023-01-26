@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    meta.helm.sh/release-name: kafka-connect-commsdata
+    meta.helm.sh/release-namespace: adtech
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  creationTimestamp: "2022-05-18T10:10:11Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/instance: kafka-connect-commsdata
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: hf-kafka-connect
+    app.kubernetes.io/version: 0.1.0
+    helm.sh/chart: hf-kafka-connect-0.5.6
+  name: annotated-ingress
+  namespace: mtest
+  resourceVersion: "2541034455"
+  uid: 60cf27f5-2c7d-4add-9521-485fbf8026b2
+spec:
+  rules:
+  - host: stub.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: stub
+            port:
+              number: 1234
+        path: /
+        pathType: ImplementationSpecific
